@@ -9,7 +9,7 @@ const Login = () => {
       <div className="container">
         <img src={loginImg} />
         <h1>Github User</h1>
-        <button onClick={loginWithRedirect} className="btn">
+        <button onClick={() => loginWithRedirect()} className="btn">
           Login / Signup
         </button>
       </div>
