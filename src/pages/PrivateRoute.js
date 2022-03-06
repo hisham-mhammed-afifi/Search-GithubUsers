@@ -9,7 +9,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={() => {
-        return true ? children : <Redirect to="/login" />;
+        return isUser ? children : <Redirect to="/login" />;
       }}
     ></Route>
   );
