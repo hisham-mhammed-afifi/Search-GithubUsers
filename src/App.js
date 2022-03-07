@@ -6,9 +6,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* <PrivateRoute exact path="/"> */}
-        <Dashboard />
-        {/* </PrivateRoute> */}
+        <PrivateRoute exact path="/">
+          <Dashboard />
+        </PrivateRoute>
         <Route path="/login">
           <Login />
         </Route>
