@@ -11,7 +11,11 @@ const Navbar = () => {
   return (
     <Wrapper>
       {isUser && user.picture && <img src={user.picture} alt={user.name} />}
-      {isUser && user.name && <h2>Welcome, {user.name.toUpperCase()}</h2>}
+      {isUser && user.name && (
+        <p style={{ marginTop: "20px" }}>
+          Welcome, <strong>{user.name.toUpperCase()}</strong>
+        </p>
+      )}
       {isUser && (
         <button onClick={() => logout({ returnTo: window.location.origin })}>
           Log Out
