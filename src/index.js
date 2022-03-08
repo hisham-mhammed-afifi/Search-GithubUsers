@@ -6,13 +6,22 @@ import * as serviceWorker from "./serviceWorker";
 import { GithubProvider } from "./context/context";
 import { Auth0Provider } from "@auth0/auth0-react";
 
+const onRedirectCallback = (appState) => {
+  history.push(
+    appState && appState.returnTo ? appState.returnTo : window.location.pathname
+  );
+};
+
+const providerConfig = {
+  domain: "dev-eouvf9h9.us.auth0.com",
+  clientId: "B2eDtPsMYmYlByIwBPBBKAbO4fjzEFYt",
+  redirectUri: window.location.origin,
+  onRedirectCallback,
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider
-      domain="dev-eouvf9h9.us.auth0.com"
-      clientId="B2eDtPsMYmYlByIwBPBBKAbO4fjzEFYt"
-      redirectUri={window.location.origin}
-    >
+    <Auth0Provider {...providerConfig}>
       <GithubProvider>
         <App />
       </GithubProvider>
